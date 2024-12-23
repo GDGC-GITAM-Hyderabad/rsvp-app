@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
   try {
     // Get request data
     const { eventId } = await request.json();
-    const userId = getTokenData(request);
+    const userId = await getTokenData(request);
 
     if (!eventId || !userId) {
       return NextResponse.json(
@@ -49,6 +49,43 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ message: "RSVP successful" }, { status: 200 });
   } catch (error) {
     console.error("RSVP Error:", error);
+    return NextResponse.json(
+      { message: "Something went wrong" },
+      { status: 500 },
+    );
+  }
+}
+
+export async function GET(request: NextRequest) {
+  try {
+    // Get user and event IDs
+    const userId = await getTokenData(request);
+    const eventId = request.nextUrl.searchParams.get("eventId");
+
+    if (!userId || !eventId) {
+      return NextResponse.json(
+        { message: "Event ID and authentication required" },
+        { status: 400 },
+      );
+    }
+
+    if (!mongoose.Types.ObjectId.isValid(eventId)) {
+      return NextResponse.json(
+        { message: "Invalid event ID format" },
+        { status: 400 },
+      );
+    }
+
+    const rsvp = await RSVP.findOne({ event: eventId, user: userId });
+
+    return NextResponse.json(
+      {
+        isRsvped: !!rsvp,
+      },
+      { status: 200 },
+    );
+  } catch (error) {
+    console.error("Check RSVP Error:", error);
     return NextResponse.json(
       { message: "Something went wrong" },
       { status: 500 },
