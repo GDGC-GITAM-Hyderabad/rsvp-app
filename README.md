@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RSVP App
 
-## Getting Started
+A modern event RSVP management application built with Next.js, enabling users to create, manage, and respond to event invitations seamlessly.
 
-First, run the development server:
+## About
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+RSVP App is a full-stack web application that simplifies event management and attendance tracking. Built with Next.js, it provides a robust platform for:
+- Creating and managing events
+- Sending and managing invitations
+- Tracking attendance and responses
+- User authentication and authorization
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **User Authentication**: Secure login and registration system
+- **Event Management**: Create, edit, and delete events
+- **RSVP Handling**: Accept or decline event invitations
+- **Real-time Updates**: Instant status updates for event changes
+- **Responsive Design**: Works seamlessly across all devices
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
 
-## Learn More
+- **Frontend**: Next.js, React, Tailwind CSS
+- **Backend**: Next.js API Routes
+- **Database**: MongoDB
+- **Authentication**: JWT (JSON Web Tokens)
 
-To learn more about Next.js, take a look at the following resources:
+## Setup Instructions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/yourusername/rsvp-app.git
+   cd rsvp-app
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+3. **Environment Setup**
+   Create a `.env` file in the root directory with the following variables:
+   ```env
+   DB_URL=your_mongodb_connection_string
+   TOKEN_SECRET=your_jwt_secret_key
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   Note:
+   - For `DB_URL`, use your MongoDB connection string
+   - For `TOKEN_SECRET`, use a secure random string for JWT signing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **Run Development Server**
+   ```bash
+   npm run dev
+   ```
+   The application will be available at `http://localhost:3000`
+
+5. **Build for Production**
+   ```bash
+   npm run build
+   npm start
+   ```
+
+## Contributing Guidelines
+
+We welcome contributions to improve the RSVP App! Here's how you can contribute:
+
+### Getting Started
+
+1. Fork the repository
+2. Create a new branch for your feature
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+### Development Process
+
+1. **Code Style**
+   - Follow the existing code style and conventions
+   - Use meaningful variable and function names
+   - Add comments for complex logic
+
+2. **Making Changes**
+   - Write clean, maintainable code
+   - Include appropriate error handling
+   - Add necessary documentation
+
+3. **Testing**
+   - Test your changes thoroughly
+   - Ensure existing functionality isn't broken
+   - Add new tests if necessary
+
+### Submitting Changes
+
+1. Commit your changes with clear, descriptive commit messages
+2. Push to your fork
+3. Submit a Pull Request with:
+   - A clear description of the changes
+   - Any relevant issue numbers
+   - Screenshots if applicable
+
+### Pull Request Process
+
+1. Update the README.md with details of changes if needed
+2. Update any documentation affected by your changes
+3. Request review from maintainers
+4. Address any feedback from reviewers
+
+## License
+
+MIT License - feel free to use this project for your own purposes.
+
+## Contact
+
+For any queries or support, please open an issue in the GitHub repository.
